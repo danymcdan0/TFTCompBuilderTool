@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="CompBuilderTool.App.Views.CompBuilderTabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CompBuilderTool.App.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel Name="CompBuilderMenu" Background="Honeydew" Margin="10" >
+            <Label HorizontalAlignment="Center">Comp Builder</Label>
+
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0"
+            Name="WebTraitButton">Web</Button>
+                <Button Grid.Column="1"
+            Name="VericalTraitButton">Vert</Button>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="125"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" HorizontalAlignment="Left">Crown:</Label>
+                <Button Grid.Column="1">-</Button>
+                <Label Grid.Column="2" HorizontalAlignment="Center">0</Label>
+                <Button Grid.Column="3">+</Button>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="125"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" HorizontalAlignment="Left">Level:</Label>
+                <Button Grid.Column="1">-</Button>
+                <Label Grid.Column="2" HorizontalAlignment="Center">0</Label>
+                <Button Grid.Column="3">+</Button>
+            </Grid>
+            <Button Margin="5">Unit Focus</Button>
+            <Button Margin="5">Build</Button>
+        </StackPanel>
+
+        <!--Comp Settings-->
+        <StackPanel Name="CompSettingsMenu" Background="PaleGoldenrod"
+        Margin="10" Visibility="Hidden" >
+            <Label HorizontalAlignment="Center">Comp Settings</Label>
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="125"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" HorizontalAlignment="Left">Add Trait:</Label>
+                <Button Grid.Column="1">-</Button>
+                <Label Grid.Column="2" HorizontalAlignment="Center">0</Label>
+                <Button Grid.Column="3">+</Button>
+            </Grid>
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox>...</TextBox>
+                <Button Grid.Column="1">Save</Button>
+            </Grid>
+        </StackPanel>
+
+        <!--My Comps-->
+        <StackPanel Name="UserCompsMenu" Background="Orchid"
+        Margin="10" Visibility="Hidden" >
+            <Label HorizontalAlignment="Center">Saved Comps</Label>
+            <ListView>
+                <ListViewItem>Saved Comp 1</ListViewItem>
+                <ListViewItem>Saved Comp 2</ListViewItem>
+                <ListViewItem>Saved Comp 3</ListViewItem>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</UserControl>
