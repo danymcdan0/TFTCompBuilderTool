@@ -48,15 +48,15 @@ namespace CompBuilderTool.App
             _boardBlocks = BoardView.Children.OfType<TextBlock>().ToArray();
         }
 
-        private async void FilterCheck(object sender, RoutedEventArgs e)
+        private void FilterCheck(object sender, RoutedEventArgs e)
         {
             if (SearchBox.Text.Length > 0)
             {
-                await _unitViewModel.FilteredLoad(SearchBox.Text);
+                _unitViewModel.FilteredLoad(SearchBox.Text);
             }
             else
             {
-                await _unitViewModel.Load();
+                _unitViewModel.StandardLoad();
             }
         }
 

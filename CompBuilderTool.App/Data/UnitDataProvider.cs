@@ -11,7 +11,6 @@ namespace CompBuilderTool.App.Data
     {
         Task<IEnumerable<Unit>> GetAll();
 
-        Task<IEnumerable<Unit>> GetBySearch(string param);
     }
 
     public class UnitDataProvider : IUnitDataProvider
@@ -32,12 +31,12 @@ namespace CompBuilderTool.App.Data
 
         }
 
-        public async Task<IEnumerable<Unit>> GetBySearch(string param)
-        {
-            await Task.Delay(100); //Simulate Async
+        //public async Task<IEnumerable<Unit>> GetBySearch(string param)
+        //{
+        //    await Task.Delay(100); //Simulate Async
 
-            var chars = param.ToLower().ToCharArray();
-            return _inMemoryList.Where(x => chars.All(x.Name.ToLower().Contains));
-        }
+        //    var chars = param.ToLower().ToCharArray();
+        //    return _inMemoryList.Where(x => chars.All(x.Name.ToLower().Contains));
+        //}
     }
 }

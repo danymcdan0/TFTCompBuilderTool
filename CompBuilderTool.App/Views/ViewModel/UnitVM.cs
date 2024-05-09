@@ -15,37 +15,59 @@ namespace CompBuilderTool.App.Views.ViewModel
 
         public ObservableCollection<Unit> Units { get; } = [];
 
+        private List<Unit> _units { get; set; } = [];
+
         public async Task Load()
         {
             var units = await _unitDataProvider.GetAll();
             if (units is not null)
             {
-                Units.Clear();
                 foreach (var unit in units)
                 {
-                    Units.Add(unit);
+                    _units.Add(unit);
                 }
+
+                UpdateObservableUnits(units);
             }
-            Units.OrderBy(x => x.Name).ToList();
         }
 
-        public async Task FilteredLoad(string param)
+        public void FilteredLoad(string param)
         {
-            var units = await _unitDataProvider.GetBySearch(param);
-            if (units is not null)
+            if (string.IsNullOrEmpty(param))
             {
-                Units.Clear();
-                foreach (var unit in units)
-                {
-                    Units.Add(unit);
-                }
-            }
-            else
-            {
-                await _unitDataProvider.GetAll();
+                return;
             }
 
-            Units.OrderBy(x => x.Name).ToList();
+            var chars = param.ToLower().ToCharArray();
+            var units = _units.Where(x => chars.All(x.Name.ToLower().Contains)).ToList();
+
+            if (units is not null)
+            {
+                UpdateObservableUnits(units);
+            }
+
+        }
+
+        public void StandardLoad()
+        {
+            Units.Clear();
+            foreach (var unit in _units)
+            {
+                Units.Add(unit);
+            }
+
+            Units.OrderBy(x => x.Name);
+        }
+
+        private void UpdateObservableUnits(IEnumerable<Unit> units) 
+        {
+            Units.Clear();
+            foreach (var unit in units) 
+            {
+                Units.Add(unit);
+            }
+
+            Units.OrderBy(x => x.Name);
         }
     }
 }
