@@ -1,28 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CompBuilderTool.App.Models.Enums;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CompBuilderTool.App.Controls
 {
-    /// <summary>
-    /// Interaction logic for HeaderControl.xaml
-    /// </summary>
     public partial class HeaderControl : UserControl
     {
+        private MainWindow _mainWindow;
         public HeaderControl()
         {
             InitializeComponent();
+            _mainWindow = (MainWindow)App.Current.MainWindow;
         }
+
+        private void Settings_OnClick(object sender, RoutedEventArgs e)
+        {
+            //TODO
+        }
+
+        private void Account_OnClick(object sender, RoutedEventArgs e)
+        {
+            //TODO
+        }
+
+        private void UserComps_OnClick(object sender, RoutedEventArgs e)
+        {
+            _mainWindow.HandleMenuSwitch(ActiveMenu.UserComps);
+        }
+
+        private void CompBuilder_OnClick(object sender, RoutedEventArgs e)
+        {
+            _mainWindow.HandleMenuSwitch(ActiveMenu.CompBuilder);
+        }
+
+        private void CompSettings_OnClick(object sender, RoutedEventArgs e)
+        {
+            _mainWindow.HandleMenuSwitch(ActiveMenu.CompSettings);
+        }
+
     }
 }

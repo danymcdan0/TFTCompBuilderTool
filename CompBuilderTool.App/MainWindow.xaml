@@ -21,20 +21,13 @@
         </Grid.RowDefinitions>
 
         <!--Header-->
-        <controls:HeaderControl Grid.Row="0" Grid.ColumnSpan="3"/>
+        <controls:HeaderControl Grid.Row="0" Grid.ColumnSpan="3" x:Name="HeaderControl"/>
 
         <!--Comp Builder Tab Menus-->
-        <views:CompBuilderTabView Grid.Row="1" Grid.Column="0"/>
+        <views:MenuTabView Grid.Row="1" Grid.Column="0" x:Name="TabViews"/>
 
         <!--Search-->
-        <StackPanel Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" Background="Coral" 
-                    Orientation="Vertical" Name ="UnitSearchView">
-            <TextBox x:Name="SearchBox" Margin="10" ToolTip="Search..."></TextBox>
-            <ListView x:Name="UnitListView" 
-                      Margin="10 0 10 10" 
-                      Background="AliceBlue"/>
-
-        </StackPanel>
+        <views:UnitsView x:Name="UnitsView"  Grid.Column="2" Grid.Row="1" Grid.RowSpan="2"/>
 
         <!--Active Traits-->
         <StackPanel Grid.Row="2" Grid.Column="0" Background="PeachPuff" Margin="10" 
@@ -51,68 +44,9 @@
         </StackPanel>
 
         <Button Name="SwapButton" Grid.Row="2" Grid.Column="2" 
-                VerticalAlignment="Bottom" Click="SwapSearchView_Button">Swap</Button>
+                VerticalAlignment="Bottom" Click="SwapUnitView_Button">Swap</Button>
 
         <!--Board-->
-        <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="2.5*"/>
-                <RowDefinition Height="1.2*"/>
-            </Grid.RowDefinitions>
-            <Grid Margin="10,0" Grid.Row="1" x:Name="BoardView">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="A1" Foreground="White" Background="Black" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="A2" Foreground="White" Background="Black" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="A3" Foreground="White" Background="Black" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="0" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="A4" Foreground="White" Background="Black" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="0" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="A5" Foreground="White" Background="Black" Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="0" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="A6" Foreground="White" Background="Black" Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="0" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="A7" Foreground="White" Background="Black" Grid.Column="12" Grid.ColumnSpan="2" Grid.Row="0" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="B1" Foreground="White" Background="Black" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="B2" Foreground="White" Background="Black" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="B3" Foreground="White" Background="Black" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="1" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="B4" Foreground="White" Background="Black" Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="1" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="B5" Foreground="White" Background="Black" Grid.Column="9" Grid.ColumnSpan="2" Grid.Row="1" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="B6" Foreground="White" Background="Black" Grid.Column="11" Grid.ColumnSpan="2" Grid.Row="1" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="B7" Foreground="White" Background="Black" Grid.Column="13" Grid.ColumnSpan="2" Grid.Row="1" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="C1" Foreground="White" Background="Black" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="C2" Foreground="White" Background="Black" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="C3" Foreground="White" Background="Black" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="2" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="C4" Foreground="White" Background="Black" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="2" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="C5" Foreground="White" Background="Black" Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="2" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="C6" Foreground="White" Background="Black" Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="2" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="C7" Foreground="White" Background="Black" Grid.Column="12" Grid.ColumnSpan="2" Grid.Row="2" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="D1" Foreground="White" Background="Black" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="D2" Foreground="White" Background="Black" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="D3" Foreground="White" Background="Black" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="3" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="D4" Foreground="White" Background="Black" Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="3" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="D5" Foreground="White" Background="Black" Grid.Column="9" Grid.ColumnSpan="2" Grid.Row="3" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="D6" Foreground="White" Background="Black" Grid.Column="11" Grid.ColumnSpan="2" Grid.Row="3" Margin="5"/>
-                <TextBlock AllowDrop="True" DragEnter="BoardDragEnter" Drop="BoardDrop" x:Name="D7" Foreground="White" Background="Black" Grid.Column="13" Grid.ColumnSpan="2" Grid.Row="3" Margin="5"/>
-            </Grid>
-        </Grid>
+        <views:BoardView x:Name="ActiveBoard"  Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"/>
     </Grid>
 </Window>

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="CompBuilderTool.App.Views.CompBuilderTabView"
+﻿<UserControl x:Class="CompBuilderTool.App.Views.MenuTabView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <!--Comp Builder-->
         <StackPanel Name="CompBuilderMenu" Background="Honeydew" Margin="10" >
             <Label HorizontalAlignment="Center">Comp Builder</Label>
 
@@ -16,9 +17,9 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0"
-            Name="WebTraitButton">Web</Button>
+            Name="WebTraitButton" Click="WebComp_OnClick">Web++</Button>
                 <Button Grid.Column="1"
-            Name="VericalTraitButton">Vert</Button>
+            Name="VericalTraitButton" Click="VertComp_OnClick">Vert++</Button>
             </Grid>
 
             <Grid>
@@ -45,8 +46,8 @@
                 <Label Grid.Column="2" HorizontalAlignment="Center">0</Label>
                 <Button Grid.Column="3">+</Button>
             </Grid>
-            <Button Margin="5">Unit Focus</Button>
-            <Button Margin="5">Build</Button>
+            <Button Margin="5" x:Name="UnitFocusButton" Click="UnitFocus_OnClick">Unit Focus</Button>
+            <Button Margin="5" x:Name="BuildCompButton" Click="BuildComp_OnClick">Build</Button>
         </StackPanel>
 
         <!--Comp Settings-->

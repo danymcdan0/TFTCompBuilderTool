@@ -17,14 +17,14 @@
         </Grid.ColumnDefinitions>
 
         <Button Grid.Column="0" Background="CornflowerBlue" Margin="1"
-                    Name="CompBuilder_Button">Comp Builder</Button>
+                    Name="CompBuilder_Button" Click="CompBuilder_OnClick">Comp Builder</Button>
         <Button Grid.Column="1" Background="PaleGoldenrod" Margin="1" 
-                    Name="CompSettings_Button">Comp Settings</Button>
+                    Name="CompSettings_Button" Click="CompSettings_OnClick">Comp Settings</Button>
         <Button Grid.Column="2" Background="Orchid" Margin="1" 
-                    Name="UserComps_Button">My Comps</Button>
+                    Name="UserComps_Button" Click="UserComps_OnClick">My Comps</Button>
         <Button Grid.Column="3" Background="LightSeaGreen" Margin="1" 
-                    Name="UserAccount_Button">My Account</Button>
+                    Name="UserAccount_Button" Click="Account_OnClick">My Account</Button>
         <Button Grid.Column="4" Background="DarkSlateGray" Margin="1" 
-                    Name="Settings_Button">Settings</Button>
+                    Name="Settings_Button" Click="Settings_OnClick">Settings</Button>
     </Grid>
 </UserControl>
